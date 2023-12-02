@@ -1,6 +1,9 @@
 import { ArrowCircleDown, ArrowCircleUp, CurrencyDollar } from 'phosphor-react'
 import { SummaryCard, SummaryContainer } from './styles'
+import { useSummary } from '../../hooks/useSmuray'
 export default function Summary() {
+    const summary = useSummary()
+
   return (
     <SummaryContainer>
         <SummaryCard>
@@ -11,7 +14,7 @@ export default function Summary() {
 
             </header>
 
-            <strong>R$ 17.400,00</strong>
+            <strong>R$ {summary.income}</strong>
         </SummaryCard>
 
         <SummaryCard>
@@ -22,7 +25,7 @@ export default function Summary() {
 
             </header>
 
-            <strong>R$ 17.400,00</strong>
+            <strong>R$ {summary.outcome}</strong>
         </SummaryCard>
 
         <SummaryCard variant='green'>
@@ -32,7 +35,7 @@ export default function Summary() {
                 <CurrencyDollar size={32} color="#fff"></CurrencyDollar>
             </header>
 
-            <strong>R$ 17.400,00</strong>
+            <strong>R$ {summary.total}</strong>
         </SummaryCard>
     </SummaryContainer>
   )
